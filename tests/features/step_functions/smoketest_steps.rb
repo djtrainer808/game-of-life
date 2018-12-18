@@ -2,6 +2,8 @@ require 'selenium-webdriver'
 
 options = Selenium::WebDriver::Chrome::Options.new
 options.add_argument('--headless')
+options.addArguments("--no-sandbox");
+options.addArguments("--disable-dev-shm-usage");
 driver = Selenium::WebDriver.for :chrome, options: options
 
 Given(/^We navigate to the homepage$/) do
