@@ -47,8 +47,8 @@ pipeline {
         }
         stage('UAT') {
             steps {
-              sh 'cd tests && cucumber APP_URL=http://localhost:9090'
-              cucumber fileIncludePattern: '**/*.json', sortingMethod: 'ALPHABETICAL'
+              sh 'cd tests && cucumber APP_URL=http://localhost:9090 -f json_pretty -o cucumber-results.json'
+              cucumber fileIncludePattern: '**/cucumber-results.json', sortingMethod: 'ALPHABETICAL'
             }
         }
     }
